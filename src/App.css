@@ -1,3 +1,54 @@
-.App {
-  text-align: center;
+* {
+  --main-bg-color: #ccc;
+  font-size: 20px;
+}
+
+.add-column {
+  width: 12%;
+  border-radius: 5px;
+  margin: 5px 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.columns {
+  width: max-content;
+  overflow-x: auto;
+  margin: 10px 5px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.task-list {
+  width: 250px;
+  background-color: var(--main-bg-color);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 1px 2px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  float: left;
+}
+
+.column {
+  border: none;
+  outline: none;
+  width: 90%;
+  margin: 5px;
+  background-color: var(--main-bg-color);
+}
+
+.add-new-task {
+  width: 90%;
+  margin: 5px;
+}
+
+.task-name-input {
+  width: 90%;
+  margin: 5px;
+  border: none;
 }
