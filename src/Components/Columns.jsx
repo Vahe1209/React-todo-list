@@ -1,7 +1,7 @@
 import { useState } from "react";
 import OutsideClickHandler from "./OutsideClickHandler.jsx";
 
-function Columns({ columns, changeColName }) {
+function Columns({ columns }) {
   const [openedInput, changeOpenedInput] = useState(null);
 
   return (
@@ -9,11 +9,7 @@ function Columns({ columns, changeColName }) {
       {columns.map((column, idx) => {
         return (
           <div key={idx} className="task-list">
-            <input
-              className="column"
-              value={column}
-              onChange={(e) => changeColName(idx, columns)}
-            />
+            <input className="column" defaultValue={column} />
 
             {openedInput === idx ? (
               <OutsideClickHandler
