@@ -4,10 +4,10 @@
 }
 
 .add-column {
-  width: 12%;
+  width: 200px;
   border-radius: 5px;
   margin: 5px 10px;
-  border: 1px solid black;
+  border: 2px dashed black;
   padding: 5px;
 }
 
@@ -50,5 +50,5 @@
 .task-name-input {
   width: 90%;
   margin: 5px;
-  border: none;
+  border: 1px dashed black;
 }

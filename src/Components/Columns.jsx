@@ -1,4 +1,5 @@
 import { useState } from "react";
+import OutsideClickHandler from "./OutsideClickHandler.jsx";
 
 function Columns({ columns, changeColName }) {
   const [openedInput, changeOpenedInput] = useState(null);
@@ -14,12 +15,22 @@ function Columns({ columns, changeColName }) {
               onChange={(e) => changeColName(idx, columns)}
             />
 
-            <button
-              onClick={() => changeOpenedInput(idx)}
-              className="add-new-task"
-            >
-              + Add new task
-            </button>
+            {openedInput === idx ? (
+              <OutsideClickHandler
+                onOutsideClick={() => {
+                  changeOpenedInput(null);
+                }}
+              >
+                <input className="task-name-input" />
+              </OutsideClickHandler>
+            ) : (
+              <button
+                onClick={() => changeOpenedInput(idx)}
+                className="add-new-task"
+              >
+                + Add new task
+              </button>
+            )}
           </div>
         );
       })}
