@@ -1,0 +1,7 @@
+.column {
+  border: none;
+  outline: none;
+  width: 90%;
+  margin: 5px;
+  background-color: #ccc;
+}
