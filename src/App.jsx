@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { render } from "@testing-library/react";
+import { useState, useEffect, Component } from "react";
 import AddColumn from "./Components/AddColumn.jsx";
 import Columns from "./Components/Columns.jsx";
 
 function App() {
   const [columns, addColumn] = useState([]);
 
-  const handleColumnChange = (colName) => {
-    addColumn([...columns, colName]);
+  useEffect(() => {
+    if (columns.length !== 0) {
+      localStorage.setItem("columns", JSON.stringify(columns));
+    }
+  }, [columns]);
+
+  const handleColumnChange = (...colName) => {
+    addColumn([...columns, ...colName]);
   };
+  useEffect(() => {
+    let col = localStorage.getItem("columns");
+    if (col) {
+      col = JSON.parse(col);
+      handleColumnChange(...col);
+    }
+  }, []);
 
   return (
     <div className="App">

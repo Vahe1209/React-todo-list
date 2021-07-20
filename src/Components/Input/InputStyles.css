@@ -5,3 +5,8 @@
   margin: 5px;
   background-color: #ccc;
 }
+
+.label-input {
+  display: flex;
+  flex-direction: row;
+}
