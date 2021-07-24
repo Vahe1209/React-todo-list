@@ -1,5 +1,4 @@
-import { render } from "@testing-library/react";
-import { useState, useEffect, Component } from "react";
+import { useState, useEffect } from "react";
 import AddColumn from "./Components/AddColumn.jsx";
 import Columns from "./Components/Columns.jsx";
 
@@ -15,6 +14,7 @@ function App() {
   const handleColumnChange = (...colName) => {
     addColumn([...columns, ...colName]);
   };
+
   useEffect(() => {
     let col = localStorage.getItem("columns");
     if (col) {

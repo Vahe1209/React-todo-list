@@ -8,5 +8,12 @@
 
 .label-input {
   display: flex;
+  box-shadow: 2px 1px hsl(257deg 100% 50% / 10%);
   flex-direction: row;
+}
+
+.delete-button {
+  color: #00000054;
+  background-color: #ccc;
+  border: none;
 }
