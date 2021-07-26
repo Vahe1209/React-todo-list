@@ -1,16 +1,28 @@
 import React from "react";
-import "./InputStyles.css";
+import "./CommonInput.css";
 
-export default function CommonInput(props) {
-  const { id, inputValue, handleRemove } = props;
-
+export default function CommonInput({
+  id,
+  inputValue,
+  handleRemove,
+  onChange,
+}) {
   function deleteTask() {
     handleRemove(id);
   }
 
+  function changeInputValue(e) {
+    inputValue = e.target.value;
+  }
+
   return (
     <label className="label-input" id={id}>
-      <input type="text" defaultValue={inputValue} className="column" />
+      <input
+        type="text"
+        value={inputValue}
+        className="column"
+        onChange={onChange}
+      />
       <button className="delete-button" onClick={deleteTask}>
         X
       </button>

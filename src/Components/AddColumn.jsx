@@ -16,7 +16,9 @@ function AddColumn({ addColumn }) {
       <input
         className="add-column"
         onKeyDown={handleEnter}
-        onChange={(e) => changeColName(e.target.value)}
+        onChange={(e) => {
+          changeColName(e.target.value);
+        }}
         type="text"
         placeholder="Add another column"
         value={colName}
