@@ -21,7 +21,6 @@ export default function TaskListContainer({
         inputValue: e.target.value,
       };
       setTaskList([...taskList, inputValueObject]);
-      localStorage.setItem("taskList");
       e.target.value = "";
     }
   }
