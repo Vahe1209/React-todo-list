@@ -11,10 +11,6 @@ export default function CommonInput({
     handleRemove(id);
   }
 
-  function changeInputValue(e) {
-    inputValue = e.target.value;
-  }
-
   return (
     <label className="label-input" id={id}>
       <input

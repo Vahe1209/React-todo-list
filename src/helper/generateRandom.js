@@ -1,6 +1,6 @@
 export default function generateRandomId() {
-  const d = new Date();
+  const date = new Date();
 
-  const n = d.getMilliseconds();
-  return n;
+  const randomDate = date.getMilliseconds();
+  return randomDate;
 }

@@ -3,7 +3,7 @@ import AddColumn from "./Components/AddColumn.jsx";
 import Columns from "./Components/Columns.jsx";
 
 function App() {
-  const [columns, addColumn] = useState([]);
+  const [columns, setColumns] = useState([]);
 
   useEffect(() => {
     if (columns.length !== 0) {
@@ -11,22 +11,22 @@ function App() {
     }
   }, [columns]);
 
-  const handleColumnChange = (...colName) => {
-    addColumn([...columns, ...colName]);
+  const handleColumnChange = (colName) => {
+    setColumns([...columns, colName]);
   };
 
   useEffect(() => {
     let col = localStorage.getItem("columns");
     if (col) {
       col = JSON.parse(col);
-      handleColumnChange(...col);
+      setColumns(col);
     }
   }, []);
 
   return (
     <div className="App">
       <AddColumn addColumn={handleColumnChange} />
-      <Columns columns={columns} />
+      <Columns columns={columns} addColumn={setColumns} />
     </div>
   );
 }

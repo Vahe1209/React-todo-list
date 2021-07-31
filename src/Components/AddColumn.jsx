@@ -1,12 +1,17 @@
 import { useState } from "react";
 import "../App.css";
+import generateRandomId from "../helper/generateRandom.js";
 
 function AddColumn({ addColumn }) {
   const [colName, changeColName] = useState("");
 
   const handleEnter = (e) => {
     if (e.key === "Enter" && colName) {
-      addColumn(colName);
+      const colNameObject = {
+        id: generateRandomId(),
+        value: e.target.value,
+      };
+      addColumn(colNameObject);
       changeColName("");
     }
   };

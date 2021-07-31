@@ -4,7 +4,13 @@ import OutsideClickHandler from "./OutsideClickHandler.jsx";
 import "./Input/CommonInput.css";
 import generateRandomId from "../helper/generateRandom.js";
 
-export default function TaskListContainer({ listContainerID, defValue }) {
+export default function TaskListContainer({
+  listContainerID,
+  defValue,
+  deleteColumn,
+  editColumn,
+  id,
+}) {
   const [openedInput, changeOpenedInput] = useState(null);
   const [taskList, setTaskList] = useState([]);
 
@@ -15,6 +21,7 @@ export default function TaskListContainer({ listContainerID, defValue }) {
         inputValue: e.target.value,
       };
       setTaskList([...taskList, inputValueObject]);
+      localStorage.setItem("taskList");
       e.target.value = "";
     }
   }
@@ -33,12 +40,17 @@ export default function TaskListContainer({ listContainerID, defValue }) {
     });
     setTaskList([...changedTaskList]);
   }
-
   return (
     <div className="task-list">
       <label className="label-input">
-        <input className="column" defaultValue={defValue} />
-        <button className="delete-button">X</button>
+        <input
+          className="column"
+          value={defValue}
+          onChange={(e) => editColumn(e, id)}
+        />
+        <button className="delete-button" onClick={() => deleteColumn(id)}>
+          X
+        </button>
       </label>
       <div>
         {taskList.map((task) => {
