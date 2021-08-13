@@ -15,7 +15,6 @@ function Columns({ columns, addColumn }) {
     });
     addColumn(editedColumn);
   }
-
   return (
     <div className="columns">
       {columns.map((column, idx) => {
